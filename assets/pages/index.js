@@ -1,14 +1,14 @@
 var products = [
     {
-        id: 1, name: "Shoes1", price: 200, image: "../images/fan.png"
+        id: 1, name: "mobile1", price: 200, image: "../images/mobile.png"
     },
     {
-        id: 2, name: "shoes2", price: 400, image: "../images/fan.png"
+        id: 2, name: "mobile2", price: 400, image: "../images/mobile.png"
     },
     {
-        id: 3, name: "shoes3", price: 600, image: "../images/fan.png"
+        id: 3, name: "mobile3", price: 600, image: "../images/mobile.png"
     }, {
-        id: 4, name: "shoes4", price: 800, image: "../images/fan.png"
+        id: 4, name: "mobile4", price: 800, image: "../images/mobile.png"
     }
 ]
 
@@ -63,6 +63,7 @@ function searchFun(event) {
 }
 
 let cart = []
+let totalAmount=0
 console.log("outside cart", cart);
 
 
@@ -70,24 +71,59 @@ function cartFun(proID) {
     let cartdata = products.find((v) => v.id == proID)
     console.log("cartdata", cartdata);
 
-    cart.push(cartdata)
+    let existing=cart.find((value)=>value.id == proID)
+    
+    if(existing){
+        cartdata.quantity++
+        totalAmount= cartdata.price + totalAmount
+    }
+    else{
+        cart.push(cartdata)
+        cartdata.quantity = 1
+        totalAmount= cartdata.price 
+    }
+    document.getElementById("total").innerHTML=totalAmount
     console.log("cart", cart);
     showCart(cart)
 }
-
+// crud = create , read , update , delete 
 
 function showCart(cartPRO) {
+    console.log("cartPRO",cartPRO);
+    
     let data = ""
     cartPRO.map((v) => (
-        data = `
+        data += `
          <tr>
              <td> <img src="${v.image}" height="100" width="100"> </td>
               <td>${v.name}</td>
               <td>${v.price}</td>
               <td>${v.quantity}</td>
-              <td><button class="btn btn-close"></button></td>
+              <td><button class="btn btn-close" onclick="deleteCart(${v.id})"></button></td>
             </tr>
         `
     ))
     document.getElementById("cart-body").innerHTML=data
+}
+
+
+
+function deleteCart(proID){
+
+let removeItem = cart.find((v)=>v.id== proID)
+console.log("removeItem",removeItem);
+
+
+if(removeItem.quantity > 1){
+    removeItem.quantity--
+    totalAmount=totalAmount - removeItem.price
+}
+else{
+    cart=cart.filter((v)=>v.id != proID )
+   totalAmount=totalAmount - removeItem.price
+
+}
+showCart(cart)
+document.getElementById("total").innerHTML=totalAmount
+
 }
