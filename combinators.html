@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Combinators Example</title>
+    <style>
+        /* 1. Descendant Combinator (space) - Targets <p> inside <div> */
+        div p {
+            color: blue;
+            font-weight: bold;
+        }
+
+        /* 2. Child Combinator (>) - Targets only direct children */
+        div > p {
+            color: green;
+        }
+
+        /* 3. Adjacent Sibling Combinator (+) - Styles the immediate next sibling */
+        h2 + p {
+            color: red;
+            font-style: italic;
+        }
+
+        /* 4. General Sibling Combinator (~) - Styles all siblings after the specified element */
+        h3 ~ p {
+            text-decoration: underline;
+            color: purple;
+        }
+
+        /* 5. Group Selector Same Style */
+        h4 , h5{
+            color: indigo;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>CSS Combinators Example</h2>
+
+    <div>
+        <p>This paragraph is inside a div (descendant selector).</p>
+        <p>This paragraph is also inside a div (child selector applies here too).</p>
+        <span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat illum rem porro consequatur nemo eveniet labore, esse incidunt, aut quidem assumenda, facere dolor? Expedita eligendi ab qui! Hic, unde eius?</p>
+        </span>
+    </div>
+
+    <p>This paragraph is outside the div.</p>
+
+    <h2>Heading 2</h2>
+    <p>This paragraph comes right after h2 (adjacent sibling selector applies).</p>
+    <p>Another paragraph after h2 (adjacent sibling doesn't apply).</p>
+
+    <h3>Heading 3</h3>
+    <p>This paragraph comes after h3 (general sibling selector applies).</p>
+    <p>Another paragraph after h3 (general sibling applies here too).</p>
+
+    <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse pariatur facilis ullam mollitia perferendis porro quaerat quia expedita suscipit. Explicabo nemo reprehenderit ratione, neque repudiandae nihil autem doloremque architecto excepturi.</h4>
+    <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, autem placeat? Deserunt placeat consequuntur in et. Nisi, dolorum, alias vitae est quis iste officia illo reprehenderit, at ipsam sint. Nemo.</h5>
+
+</body>
+</html>

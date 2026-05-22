@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    Welcome to home page
+    <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#searchCanvas">search</button>
+    <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas">cart</button>
+
+    <div class="row" id="productsData"></div>
+
+    <div id="unique"></div>
+
+    <div class="offcanvas offcanvas-top" style="height: 500px;" id="searchCanvas">
+      <div class="offcanvas-header">
+        <h2>search</h2>
+        <button class="btn btn-close"data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <form class="input-group" onsubmit="searchFun(event)"><input type="search" id="searchInput" class="form-control"/> <input type="submit" class="btn btn-success"/></form>
+        <br><br>
+        <div class="row" id="serachOutput">
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- cart canvas -->
+
+
+      <div class="offcanvas offcanvas-top" style="height: 500px;" id="cartCanvas">
+      <div class="offcanvas-header">
+        <h2>cart</h2>
+        <button class="btn btn-close"data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>product</th>
+              <th>name</th>
+              <th>price</th>
+              <th>quantity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="cart-body">
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>
