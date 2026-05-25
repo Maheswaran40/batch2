@@ -15,135 +15,39 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <style>
-      body{
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        flex-direction: column;
-      }
-      .doll{
-        height: 300px;
-        width: 300px;
-        background-color: burlywood;
-        border-radius: 100%;
-        position: relative;
-        
-      }
-      .child:nth-child(1){
-          height: 150px;
-          width: 80px;
-          background-color: rgb(240, 186, 186);
-          left: 10px;
-        position: absolute;
-        transform: rotate(-30deg);
-        animation: ear1 1s linear infinite alternate;
-         border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
-             border-bottom-left-radius: 50%;
-             z-index: 2;
-      }
-       .child:nth-child(2){
-         height: 150px;
-          width: 80px;
-          background-color: rgb(240, 186, 186);
-          position: absolute;
-          right: 10px;
-          top: 0px;
-        transform: rotate(30deg);
-        animation: ear2 1s linear infinite alternate;
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
-        border-bottom-right-radius: 50%;
-        z-index: 2;
-
-      }
-       .child:nth-child(3){
-        height: 30px;
-        width: 60px;
-        background-color: brown;
-        position: absolute;
-        top: 60%;
-        left: 40%;
-        border-radius: 20px;
-      }
-
-      .eye1{
-          height: 30px;
-        width: 30px;
-        border-radius: 100%;
-        background-color: black;
-         position: absolute;
-         top: 100px;
-         left: 70px;
-         z-index: 1;
-      }
-
-   
-      .eye2{
-         height: 30px;
-        width: 30px;
-        border-radius: 100%;
-        background-color: black;
-        position: absolute;
-        top: 100px;
-         right: 70px;
-
-      }
-
-      h3{
-        animation: bhuvana 1s linear infinite alternate;
-      }
-      @keyframes bhuvana {
-          from{
-          transform: translateY(20px) ;
-            z-index: -1;
-        }
-        to{
-           transform: translateY(-50px);
-           z-index: -1;
-        }
-      }
-
-      @keyframes ear1 {
-        from{
-          transform: rotateZ(50deg);
-        }
-        to{
-           transform: rotateZ(-50deg);
-        }
-        
-      }
-       @keyframes ear2 {
-        from{
-          transform: rotateZ(-50deg);
-        }
-        to{
-           transform: rotateZ(50deg);
-        }
-        
-      }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
+<style>
+ body{
+  height: 100vh;
+ }
+ 
+
+
+</style>
+<body class=" d-flex justify-content-center align-items-center flex-column">
+   
+      <form onsubmit="login(event)">
+        <input type="text" id="user"><br>
+        <label for="">Ilife</label><br>
+        <input type="password" id="pass"><br>
+        <label for="">123</label><br>
+        <input type="submit">
+      </form>
 <body>
 
-<div class="doll">
-
-
-  <div class="child"></div>
-  <div class="child"></div>
-  <div class="child"></div>
-  <div class="eye1">1</div>
-  <div class="eye2"></div>
-
-
-</div>
-
-<h3>Hi Bhuvana</h3>
-
-
-</body>
-
+  <script>
+    function login(e){
+      e.preventDefault()
+      let username=document.getElementById("user").value
+      let password=document.getElementById("pass").value
+      console.log(username,password);
+      if(username== "ilife" && password == "123"){
+        window.location.href="./assets/pages/Home.html"
+      }
+      else{
+        alert("username or pass is invalid")
+      }
+    }
+  </script>
 </html>
